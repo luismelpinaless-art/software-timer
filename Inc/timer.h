@@ -1,5 +1,5 @@
-#ifndef AR_OS_TIMER_H
-#define AR_OS_TIMER_H
+#ifndef TIMER_H
+#define TIMER_H
 #include "stdbool.h"
 #include "stdint.h"
 
