@@ -40,12 +40,12 @@ if(tm == NULL){
 	return;
 }
 
-if(tm->active == false){
-	return;
-}
-
 if(tm->period_reached == true){
 	tm->period_reached = false;
+}
+
+if(tm->active == false){
+	return;
 }
 
 if(tm->mode == true){
