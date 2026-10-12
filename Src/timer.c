@@ -1,4 +1,4 @@
-#include "timer.h"
+#include <timer.h>
 
 void timer_init(TIMER *tm, uint32_t limit, bool mod){
 if(tm == NULL){
@@ -20,7 +20,6 @@ if(tm == NULL){
 
 if(tm->active == false){
 	tm->active = true;
-	tm->counter = 0;
 	}
 }
 
@@ -31,6 +30,8 @@ if(tm == NULL){
 if(tm->active == true){
 	tm->active = false;
 	tm->counter = 0;
+	tm->event = EVT_TIMER_IDLE;
+	tm->period_reached = false;
 	}
 }
 
@@ -40,23 +41,27 @@ if(tm == NULL){
 }
 
 if(tm->active == false){
-tm->counter = 0;
-tm->event = EVT_TIMER_IDLE;
-tm->period_reached = false;
-return;
-}
-
-if(tm->event == EVT_TIMER_DONE && tm->mode == true){
-	tm->event = EVT_TIMER_IDLE;
+	return;
 }
 
 if(tm->period_reached == true){
 	tm->period_reached = false;
 }
 
+if(tm->mode == true){
+	if(tm->event == EVT_TIMER_DONE){
+		tm->event = EVT_TIMER_IDLE;
+	}
+}
+
+if(tm->mode == false){
+	tm->event = EVT_TIMER_DONE;
+	tm->counter = 0;
+}
+
 if(tm->counter < tm->limit){
 	tm->counter++;
-	}
+}
 
 if(tm->counter >= tm->limit){
 	tm->counter = 0;
