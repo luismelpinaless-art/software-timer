@@ -1,4 +1,4 @@
-#include <AR_OS_timer.h>
+#include "timer.h"
 
 void timer_init(TIMER *tm, uint32_t limit, bool mod){
 if(tm == NULL){
