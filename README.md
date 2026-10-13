@@ -29,6 +29,6 @@ Most embedded firmware needs to wait, repeat or time things without stopping the
 ## Roadmap
 - [x] One_shot timer
 - [x] Auto Reload timer
-- [x] AR/OS modes (Auto Reload mode, one_shot mode)
+- [x] AR_OS modes (Auto Reload mode, one_shot mode)
 - [ ] Time stamps timer + function pointer
 - [ ] Time manager + callbacks
