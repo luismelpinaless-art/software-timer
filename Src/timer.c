@@ -7,7 +7,7 @@ if(tm == NULL){
 
 tm->counter = 0;
 tm->limit = limit;
-tm->active = true;
+tm->active = false;
 tm->mode = mod;
 tm->period_reached = false;
 tm->event = EVT_TIMER_IDLE;
